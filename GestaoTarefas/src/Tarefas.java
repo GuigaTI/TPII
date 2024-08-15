@@ -124,6 +124,33 @@ public class Tarefas {
         }
     }
 
+    public static void exibirPStatus() throws SQLException {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Digite o status das tarefas a ser mostrado: ");
+        String stat = scan.nextLine();
+        String queryEx = "SELECT * FROM tarefas WHERE status = ? ORDER BY id ASC";
+        PreparedStatement stmt = connection.prepareStatement(queryEx);
+        stmt.setString(1, stat);
+        try(ResultSet rs = stmt.executeQuery()){
+            while(rs.next()){
+                int id2 = rs.getInt("id");
+                String tipoTarefa = rs.getString("tipoTarefa");
+                String nomeTarefa = rs.getString("nomeTarefa");
+                String descTarefa = rs.getString("descTarefa");
+                String status = rs.getString("status");
+                System.out.println("ID: " + id2 + "\n" +
+                        "Tipo da Tarefa: " + tipoTarefa + "\n" +
+                        "Nome da Tarefa: " + nomeTarefa + "\n" +
+                        "Descrição da Tarefa: " + descTarefa + "\n" +
+                        "Status da Tarefa: " + status + "\n" +
+                        "--------------------------------");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void editarTarefas() throws SQLException {
         Scanner scanOp = new Scanner(System.in);
         Scanner scanInt = new Scanner(System.in);
