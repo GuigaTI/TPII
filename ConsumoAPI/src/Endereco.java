@@ -91,7 +91,7 @@ public String cidade;
             try(ResultSet rs = stmt.executeQuery()){
                 while(rs.next()){
                    id2 = rs.getInt("id");
-                   String info = id2 + " - " + cep + " - " + tempo.horario + "\n";
+                   String info = id2 + " - " + cep + " - " + tempo.horario + " - " + tempo.local "\n";
                     escrita.write(info);
                 }
             }catch (SQLException e){
