@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 
 public class ConsomeAPI {
 
-    private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBZqU29U_VwCB0P1IuZmjrYbU4JIujtnwg";
+    private static final String API_KEY = "Digite a chave da sua API aqui";
+    private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" + API_KEY;
     private static final Pattern RESP_PATTERN =
             Pattern.compile("\"text\"\\s*:\\s*\"([^\"]+)\"");
 
