@@ -16,7 +16,7 @@ public class imperPromo {
         List<JsonNode> jsonList = new ArrayList<>();
         jsonNode.forEach(jsonList::add);
         List<String> promoList = jsonList.stream()
-                .filter(node -> node.get("price").asInt() < val)
+                .filter(node -> node.get("price").asInt() <= val)
                 .map(node -> node.get("title").asText())
                 .map(String::toUpperCase)
                 .toList();
@@ -31,7 +31,7 @@ public class imperPromo {
         List<JsonNode> jsonList = new ArrayList<>();
         jsonNode.forEach(jsonList::add);
         List<String> imperList = jsonList.stream()
-                .filter(node -> node.get("price").asInt() < 30)
+                .filter(node -> node.get("price").asInt() <= 30)
                 .map(node -> node.get("title").asText())
                 .toList();
 
